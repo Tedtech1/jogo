@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Adivinhação</title>
+    
+    <!-- Vinculando o CSS externo -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Descubra o Número Para Ser o Amor da Minha Vida</h1>
+        <p>Tente adivinhar o número secreto entre 1 e 10!</p>
+        <form method="POST">
+            <input type="number" name="palpite" placeholder="Digite seu palpite" required>
+            <button type="submit">Enviar</button>
+        </form>
+        <p>{{ mensagem }}</p>
+        {% if coracoes %}
+            <div class="coracoes">
+                {% for i in range(coracoes) %}
+                    <span class="coracao">❤️</span>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
